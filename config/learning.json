@@ -1,0 +1,12 @@
+{
+  "scc_root": "..",
+  "paths": {
+    "data_dir": "data"
+  },
+  "as_of": "2026-07-06T00:00:00+00:00",
+  "thresholds": {
+    "min_frequency": 2,
+    "strong_frequency": 5
+  },
+  "extra": {}
+}

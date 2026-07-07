@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "scc-brainai-learning"
+version = "1.0.0"
+description = "Couche d'apprentissage de BrainAI — transforme l'expérience (BrainAI Memory) en apprentissages propositionnels (patterns, leçons, recommandations, hypothèses). Validation humaine obligatoire. Stdlib pur, déterministe, sans réseau."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "Proprietary" }
+authors = [{ name = "Seror Créative" }]
+keywords = ["scc", "brainai", "learning", "patterns", "recommendations"]
+dependencies = []
+
+[project.scripts]
+scc-brain-learning = "scc_brainai_learning.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+addopts = "-q"
