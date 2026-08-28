@@ -51,6 +51,17 @@ _TEMPLATES: Dict[str, Dict[str, str]] = {
         "reco": "Proposer de clarifier la préférence conflictuelle avec l'utilisateur (proposition).",
         "hypo": "Hypothèse : fixer la préférence conflictuelle réduirait l'incohérence perçue.",
     },
+    "pursuit_delivery": {
+        "lesson": (
+            "Plusieurs Pursuits ont atteint un état de livraison réel ; "
+            "cette récurrence constitue une expérience de livraison capitalisable."
+        ),
+        "reco": (
+            "Proposer d'examiner les Pursuits livrées et leurs preuves afin "
+            "d'identifier les pratiques de livraison récurrentes qui méritent "
+            "d'être conservées comme apprentissages validés."
+        ),
+    },
 }
 
 

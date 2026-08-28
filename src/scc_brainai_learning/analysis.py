@@ -125,6 +125,23 @@ def detect_signals(entries: List[Dict[str, Any]], config: LearningConfig) -> Lis
             "Une seule intention est utilisée malgré de nombreux cycles.",
             ids, cycles, cycles, "weak_zone", config, {"diversity": "low"}))
 
+    # 8. Livraisons de Pursuit — expérience L3 (subtype 'pursuit_delivered') traduite en signaux
+    #    ÉLÉMENTAIRES (un par événement) dans le langage natif Learning-12. Axe de récurrence canonique =
+    #    le fait de livraison lui-même (aucune taxonomie métier, aucun bucket "?"). Gate min_frequency sur le
+    #    TOTAL transverse (jamais par project) : un événement isolé n'émet rien. La consolidation multi-Pursuits
+    #    est déléguée au grouping natif (union des evidence par catégorie). evidence = IDs Memory-11 réels.
+    delivered = [e for e in by_subtype.get("pursuit_delivered", [])
+                 if (e.get("data") or {}).get("status") in (None, "", "delivered")]
+    if len(delivered) >= minf:
+        for e in sorted(delivered, key=lambda x: x["id"]):
+            d = e.get("data") or {}
+            ref = d.get("pursuit_ref")
+            signals.append(_mk_signal(
+                f"Livraison de Pursuit : {ref or e['id']}",
+                f"Pursuit livrée (ref {ref or '—'}).",
+                [e["id"]], 1, cycles, "pursuit_delivery", config,
+                {"pursuit_ref": ref, "project": d.get("project"), "result": d.get("result")}))
+
     return sorted(signals, key=lambda s: s.id)
 
 
